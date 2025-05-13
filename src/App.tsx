@@ -4,6 +4,7 @@ import './css/general.css';
 import backgroundVideo from './assets/AdobeStock_142803167_Video_HD_Preview.mov';
 import Searchbar from './components/Searchbar/Searchbar';
 import WeatherDays from './components/WeatherDays/WeatherDays';
+import WeatherHours from './components/WeatherHours/WeatherHours';
 
 function App() {
 
@@ -16,6 +17,7 @@ function App() {
         <Searchbar />
       </header>
       <WeatherDays />
+      <WeatherHours />
     </div>
   );
 }

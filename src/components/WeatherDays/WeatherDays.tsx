@@ -1,73 +1,44 @@
-import React, { useEffect, useState } from 'react';
-
-interface ForecastItem {
-  dt: number;
-  main: {
-    temp: number;
-    feels_like: number;
-    temp_min: number;
-    temp_max: number;
-    pressure: number;
-    humidity: number;
-  };
-  weather: {
-    id: number;
-    main: string;
-    description: string;
-    icon: string;
-  }[];
-  clouds: {
-    all: number;
-  };
-  wind: {
-    speed: number;
-    deg: number;
-    gust: number;
-  };
-  visibility: number;
-  pop: number;
-  sys: {
-    pod: string; 
-  };
-  dt_txt: string;
-}
-
-interface ForecastData {
-  city: {
-    name: string;
-  };
-  list: ForecastItem[];
-}
+import React from 'react';
+import useFetchWeatherForecast, { ForecastItem, ForecastData } from '../../hooks/useFetchWeatherForecast';
 
 const WeatherDays: React.FC = () => {
-  const [forecast, setForecast] = useState<ForecastData | null>(null);
-  const API_KEY = "cf2e206c699833f5d7a554c3c2cfd1f6";
   const city = "Warsaw";
+  const { forecast, loading, error } = useFetchWeatherForecast(city);
 
-  useEffect(() => {
-    const fetchForecast = async () => {
-      try {
-        const res = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?q=${city}&appid=${API_KEY}&units=metric&lang=pl`
-        );
-        const data = await res.json();
-        setForecast(data);
-      } catch (err) {
-        console.error("Błąd podczas pobierania danych prognozy: ", err);
+  const getDailyForecast = (forecastList: ForecastItem[]): ForecastItem[] => {
+    const dailyForecast: { [key: string]: ForecastItem } = {};
+
+    forecastList.forEach((item) => {
+      const date = new Date(item.dt * 1000).toLocaleDateString();
+      if (!dailyForecast[date]) {
+        dailyForecast[date] = item;
       }
-    };
-    fetchForecast();
-  }, []);
+    });
 
-  return (
-    <div className="weather-container">
-      {forecast && (
+    return Object.values(dailyForecast);
+  };
+
+  if (loading) {
+    return <p>Ładowanie prognozy pogody...</p>;
+  }
+
+  if (error) {
+    return <p>Błąd podczas pobierania danych prognozy: {error.message}</p>;
+  }
+
+  if (forecast) {
+    console.log('Forecast data:', forecast);
+    const dailyData = getDailyForecast(forecast.list);
+    console.log('Daily forecast data:', dailyData);
+
+    return (
+      <div className="weather-container">
         <div>
-          <h2>Prognoza pogody w {forecast.city.name}</h2>
+          <h2>Prognoza pogody na najbliższe dni w {forecast.city.name}</h2>
           <div className="forecast-list">
-            {forecast.list.slice(0, 8).map((item, index) => ( // Wyświetlamy prognozę na kilka najbliższych godzin
+            {dailyData.map((item, index) => (
               <div key={index} className="forecast-item">
-                <p>Godzina: {new Date(item.dt * 1000).toLocaleTimeString()}</p>
+                <p>Dzień: {new Date(item.dt * 1000).toLocaleDateString()}</p>
                 <p>Temperatura: {item.main.temp}°C</p>
                 <p>Opis: {item.weather[0].description}</p>
                 {item.weather[0].icon && (
@@ -80,10 +51,11 @@ const WeatherDays: React.FC = () => {
             ))}
           </div>
         </div>
-      )}
-      {!forecast && <p>Ładowanie prognozy pogody...</p>}
-    </div>
-  );
+      </div>
+    );
+  }
+
+  return null;
 };
 
 export default WeatherDays;
