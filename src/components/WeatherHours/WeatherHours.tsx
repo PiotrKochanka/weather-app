@@ -35,7 +35,6 @@ const WeatherHours: React.FC = () => {
           </div>
         </div>
       )}
-      {!forecast && <p>Ładowanie prognozy pogody...</p>}
     </div>
   );
 };
