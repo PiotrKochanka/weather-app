@@ -5,6 +5,7 @@ import backgroundVideo from './assets/AdobeStock_142803167_Video_HD_Preview.mov'
 import Searchbar from './components/Searchbar/Searchbar';
 import WeatherDays from './components/WeatherDays/WeatherDays';
 import WeatherHours from './components/WeatherHours/WeatherHours';
+import WeatherDetails from './components/WeatherDetails/WeatherDetails';
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       </header>
       <WeatherDays />
       <WeatherHours />
+      <WeatherDetails />
     </div>
   );
 }
