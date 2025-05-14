@@ -17,9 +17,15 @@ function App() {
       <header>
         <Searchbar />
       </header>
-      <WeatherDays />
-      <WeatherHours />
-      <WeatherDetails />
+      <div className="container_weather_all">
+        <div className="container_left">
+          <WeatherDetails />
+          <WeatherHours />
+        </div>
+        <div className="container_right">
+          <WeatherDays />
+        </div>
+      </div>
     </div>
   );
 }

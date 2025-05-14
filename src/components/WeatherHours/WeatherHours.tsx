@@ -1,5 +1,6 @@
 import React from 'react';
 import useFetchWeatherForecast, { ForecastItem, ForecastData } from '../../hooks/useFetchWeatherForecast';
+import styles from './weatherHours.module.css';
 
 const WeatherHours: React.FC = () => {
     const city = "Warsaw";
@@ -14,11 +15,11 @@ const WeatherHours: React.FC = () => {
     }
 
   return (
-    <div className="weather-container">
+    <div className={`weather-container ${styles.weather_hours}`}>
       {forecast && (
         <div>
           <h2>Prognoza pogody w {forecast.city.name}</h2>
-          <div className="forecast-list">
+          <div className={`${styles.forecast_list}`}>
             {forecast.list.slice(0, 5).map((item, index) => (
               <div key={index} className="forecast-item">
                 <p>Godzina: {new Date(item.dt * 1000).toLocaleTimeString()}</p>

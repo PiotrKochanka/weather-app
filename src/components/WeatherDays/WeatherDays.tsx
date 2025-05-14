@@ -1,5 +1,6 @@
 import React from 'react';
 import useFetchWeatherForecast, { ForecastItem, ForecastData } from '../../hooks/useFetchWeatherForecast';
+import styles from './weatherDays.module.css';
 
 const WeatherDays: React.FC = () => {
   const city = "Warsaw";
@@ -32,7 +33,7 @@ const WeatherDays: React.FC = () => {
     console.log('Daily forecast data:', dailyData);
 
     return (
-      <div className="weather-container">
+      <div className={`weather-container ${styles.weather_days}`}>
         <div>
           <h2>Prognoza pogody na najbliższe dni w {forecast.city.name}</h2>
           <div className="forecast-list">

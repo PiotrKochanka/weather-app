@@ -22,3 +22,26 @@ body{
     opacity: 0.5;
     pointer-events: none;
 }
+.container_weather_all{
+    padding: 40px;
+    display: flex;
+    gap: 40px;
+}
+.container_left{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    width: 75%;
+}
+.container_right{
+    width: 25%;
+}
+.weather-container{
+    background-color: rgba(255, 255, 255, 0.767);
+    backdrop-filter: blur(30px);
+    position: relative;
+    z-index: 2;
+    color: black;
+    padding: 40px;
+    border-radius: 2rem;
+}
