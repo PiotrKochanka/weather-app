@@ -18,19 +18,21 @@ const WeatherHours: React.FC = () => {
     <div className={`weather-container ${styles.weather_hours}`}>
       {forecast && (
         <div>
-          <h2>Prognoza pogody w {forecast.city.name}</h2>
+          <h2>Pogoda na najbliższe godziny</h2>
           <div className={`${styles.forecast_list}`}>
             {forecast.list.slice(0, 5).map((item, index) => (
-              <div key={index} className="forecast-item">
-                <p>Godzina: {new Date(item.dt * 1000).toLocaleTimeString()}</p>
-                <p>Temperatura: {item.main.temp}°C</p>
-                <p>Opis: {item.weather[0].description}</p>
-                {item.weather[0].icon && (
-                  <img
-                    src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
-                    alt={item.weather[0].description}
-                  />
-                )}
+              <div key={index} className={`${styles.forecast_item}`}>
+                <p>{new Date(item.dt * 1000).toLocaleTimeString()}</p>
+                <p>{item.main.temp}°C</p>
+                <div className={`${styles.forecast_description}`}>
+                  {item.weather[0].icon && (
+                    <img
+                      src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                      alt={item.weather[0].description}
+                    />
+                  )}
+                  <p>{item.weather[0].description}</p>
+                </div>
               </div>
             ))}
           </div>

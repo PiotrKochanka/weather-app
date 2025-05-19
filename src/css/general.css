@@ -37,13 +37,13 @@ body{
     width: 30%;
 }
 .weather-container{
-    background-color: rgba(255, 255, 255, 0.767);
+    background-color: rgba(72, 113, 150, 0.479);
     backdrop-filter: blur(30px);
     position: relative;
     z-index: 2;
     color: black;
     height: 100%;
-    padding: 40px;
+    padding: 24px 40px;
     border-radius: 2rem;
 }
 header{
