@@ -42,6 +42,13 @@ body{
     position: relative;
     z-index: 2;
     color: black;
+    height: 100%;
     padding: 40px;
     border-radius: 2rem;
+}
+header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px 0px 0px 0px;
 }
