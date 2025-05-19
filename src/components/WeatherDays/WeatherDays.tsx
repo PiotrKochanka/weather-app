@@ -35,19 +35,21 @@ const WeatherDays: React.FC = () => {
     return (
       <div className={`weather-container ${styles.weather_days}`}>
         <div>
-          <h2>Prognoza pogody na najbliższe dni w {forecast.city.name}</h2>
+          <h2>Prognoza pogody na najbliższe 5 dni</h2>
           <div className="forecast-list">
             {dailyData.map((item, index) => (
-              <div key={index} className="forecast-item">
-                <p>Dzień: {new Date(item.dt * 1000).toLocaleDateString()}</p>
-                <p>Temperatura: {item.main.temp}°C</p>
-                <p>Opis: {item.weather[0].description}</p>
-                {item.weather[0].icon && (
-                  <img
-                    src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
-                    alt={item.weather[0].description}
-                  />
-                )}
+              <div key={index} className={`${styles.forecast_item}`}>
+                <p>{new Date(item.dt * 1000).toLocaleDateString()}</p>
+                <p>{item.main.temp}°C</p>
+                <div className={`${styles.forecast_item_des}`}>
+                  {item.weather[0].icon && (
+                    <img
+                      src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                      alt={item.weather[0].description}
+                    />
+                  )}
+                  <p>{item.weather[0].description}</p>
+                </div>
               </div>
             ))}
           </div>

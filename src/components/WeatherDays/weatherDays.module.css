@@ -1,4 +1,24 @@
 .weather_days{
     width: 100%;
     box-sizing: border-box;
+    height: 100%;
+}
+.forecast_item{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    border-bottom: 1px solid rgb(190, 190, 190);
+    padding: 24px 0px;
+}
+.forecast_item:last-child{
+    border-bottom: 0px none transparent;
+}
+.forecast_item > p{
+    width: 33%;
+}
+.forecast_item_des{
+    display: flex;
+    align-items: center;
+    width: 33%;
 }
