@@ -1,0 +1,17 @@
+.details_container{
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    position: relative;
+    box-sizing: border-box;
+}
+.details_all{
+    width: 50%;
+}
+.details_main{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
