@@ -6,8 +6,19 @@ import Searchbar from './components/Searchbar/Searchbar';
 import WeatherDays from './components/WeatherDays/WeatherDays';
 import WeatherHours from './components/WeatherHours/WeatherHours';
 import WeatherDetails from './components/WeatherDetails/WeatherDetails';
+import useFetchWeatherForecast, { ForecastItem, ForecastData } from './hooks/useFetchWeatherForecast';
 
 function App() {
+  const city = "Warsaw";
+  const { forecast, loading, error } = useFetchWeatherForecast(city);
+
+  if (loading) {
+    return <p>Ładowanie prognozy pogody...</p>;
+  }
+
+  if (error) {
+    return <p>Błąd podczas pobierania danych prognozy: {error.message}</p>;
+  }
 
   return (
     <div className="container">
