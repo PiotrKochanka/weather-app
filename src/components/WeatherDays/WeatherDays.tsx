@@ -40,7 +40,7 @@ const WeatherDays: React.FC = () => {
             {dailyData.map((item, index) => (
               <div key={index} className={`${styles.forecast_item}`}>
                 <p>{new Date(item.dt * 1000).toLocaleDateString()}</p>
-                <p>{item.main.temp}°C</p>
+                <p>{Math.round(item.main.temp)}°C</p>
                 <div className={`${styles.forecast_item_des}`}>
                   {item.weather[0].icon && (
                     <img

@@ -23,7 +23,7 @@ const WeatherHours: React.FC = () => {
             {forecast.list.slice(0, 5).map((item, index) => (
               <div key={index} className={`${styles.forecast_item}`}>
                 <p>{new Date(item.dt * 1000).toLocaleTimeString()}</p>
-                <p>{item.main.temp}°C</p>
+                <p>{Math.round(item.main.temp)}°C</p>
                 <div className={`${styles.forecast_description}`}>
                   {item.weather[0].icon && (
                     <img

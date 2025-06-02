@@ -23,8 +23,8 @@ const WeatherDetails: React.FC = () => {
                     <>
                         <div key={index} className={`weather-container ${styles.details_all}`}>
                             <p><strong>{item.weather[0].description}</strong></p>
-                            <p>Temperatura minimalna: {item.main.temp_min}°C</p>
-                            <p>Temperatura maksymalna: {item.main.temp_max}°C</p>
+                            <p>Temperatura minimalna: {Math.round(item.main.temp_min)}°C</p>
+                            <p>Temperatura maksymalna: {Math.round(item.main.temp_max)}°C</p>
                             <p>Wilgotność: {item.main.humidity}%</p>
                             <p>Zachmurzenie: {item.clouds.all}%</p>
                             <p>Prędkość wiatru: {item.wind.speed}km/h</p>
@@ -37,7 +37,7 @@ const WeatherDetails: React.FC = () => {
                                     alt={item.weather[0].description}
                                 />
                             )}
-                            <p>Temperatura: {item.main.temp}°C</p>
+                            <p>Temperatura: {Math.round(item.main.temp)}°C</p>
                         </div>
                     </>
                 ))}
