@@ -7,7 +7,7 @@
     border-radius: 2rem;
     position: relative;
     z-index: 2;
-    background-color: rgba(8, 27, 43, 0.767);
+    background-color: rgba(27, 29, 31, 0.767);
     border: 1px solid rgba(255, 255, 255, 0.253);
 }
 .searchbar::placeholder{
@@ -19,7 +19,7 @@
     border: 0px none transparent;
     border-radius: 2rem;
     margin-left: 16px;
-    background-color: rgb(0, 117, 250);
+    background-color: rgb(35, 124, 226);
     position: relative;
     z-index: 2;
     font-size: 20px;

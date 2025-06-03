@@ -11,6 +11,9 @@
     justify-content: space-between;
     flex-wrap: wrap;
 }
+.details_all img{
+    width: 60px;
+}
 .details_all h2{
     width: 100%;
     text-align: center;
