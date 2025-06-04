@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import useFetchWeatherForecast, { ForecastItem, ForecastData } from '../../hooks/useFetchWeatherForecast';
 import styles from './weatherDays.module.css';
+import { CityContext } from '../../CityContext';
 
 const WeatherDays: React.FC = () => {
-  const city = "Warsaw";
+  const { city } = useContext(CityContext)!;
   const { forecast, loading, error } = useFetchWeatherForecast(city);
 
   const getDailyForecast = (forecastList: ForecastItem[]): ForecastItem[] => {

@@ -16,7 +16,7 @@
 }
 .details_all h2{
     width: 100%;
-    text-align: center;
+    text-align: left;
 }
 .details_all_temp{
     width: 50%;
@@ -29,7 +29,7 @@
 .details_main{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
     width: 50%;
 }

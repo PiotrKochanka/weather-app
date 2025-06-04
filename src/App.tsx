@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './App.css';
 import './css/general.css';
 import backgroundVideo from './assets/AdobeStock_142803167_Video_HD_Preview.mov';
@@ -7,9 +7,10 @@ import WeatherDays from './components/WeatherDays/WeatherDays';
 import WeatherHours from './components/WeatherHours/WeatherHours';
 import WeatherDetails from './components/WeatherDetails/WeatherDetails';
 import useFetchWeatherForecast, { ForecastItem, ForecastData } from './hooks/useFetchWeatherForecast';
+import { CityContext, CityProvider } from './CityContext';
 
 function App() {
-  const city = "Warsaw";
+  const { city } = useContext(CityContext)!;
   const { forecast, loading, error } = useFetchWeatherForecast(city);
 
   if (loading) {
@@ -41,4 +42,11 @@ function App() {
   );
 }
 
-export default App;
+export default function WrappedApp() {
+  return(
+    <CityProvider>
+      <App />
+    </CityProvider>
+  );
+}
+
