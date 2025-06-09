@@ -33,10 +33,13 @@ export interface ForecastItem {
 }
 
 export interface ForecastData {
-  city: {
-    name: string;
-  };
-  list: ForecastItem[];
+    city: {
+        name: string;
+    };
+    list: ForecastItem[];
+    cod: string;
+    message: number;
+    cnt: number; 
 }
 
 interface UseWeatherForecastResult {
