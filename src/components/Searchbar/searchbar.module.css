@@ -9,6 +9,7 @@
     z-index: 2;
     background-color: rgba(27, 29, 31, 0.767);
     border: 1px solid rgba(255, 255, 255, 0.253);
+    color: white;
 }
 .searchbar::placeholder{
     color: white;
