@@ -44,6 +44,7 @@ function App() {
     return <p>Błąd podczas pobierania danych prognozy: {error.message}</p>;
   }
 
+
   return (
     <div className="container">
       <video autoPlay muted loop key={currentVideoSource}> {/* Dodaj atrybut key! */}
