@@ -24,15 +24,17 @@ const WeatherDetails: React.FC = () => {
                     <>
                         <div key={index} className={`weather-container ${styles.details_all}`}>
                             <div className={`${styles.details_main}`}>
-                                <h2>Pogoda {forecast.city.name}</h2>
-                                <p><strong>{item.weather[0].description}</strong></p>
+                                <div>
+                                    <h2>Pogoda {forecast.city.name}</h2>
+                                    <p><strong>{item.weather[0].description}</strong></p>
+                                    <p>Temperatura: {Math.round(item.main.temp)}°C</p>
+                                </div>
                                 {item.weather[0].icon && (
                                     <img
-                                        src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                                        src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`}
                                         alt={item.weather[0].description}
                                     />
                                 )}
-                                <p>Temperatura: {Math.round(item.main.temp)}°C</p>
                             </div>
                             <div className={`${styles.details_all_temp}`}>
                                 

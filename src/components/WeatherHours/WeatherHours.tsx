@@ -28,7 +28,7 @@ const WeatherHours: React.FC = () => {
                 <div className={`${styles.forecast_description}`}>
                   {item.weather[0].icon && (
                     <img
-                      src={`https://openweathermap.org/img/wn/${item.weather[0].icon}.png`}
+                      src={`https://openweathermap.org/img/wn/${item.weather[0].icon}@4x.png`}
                       alt={item.weather[0].description}
                     />
                   )}
