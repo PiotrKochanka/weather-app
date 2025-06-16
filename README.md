@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Aplikacja Pogodowa
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Prosta i intuicyjna aplikacja pogodowa, która pozwala na sprawdzenie aktualnych warunków pogodowych oraz prognoz dla wybranego miasta. Aplikacja wyświetla szczegółowe dane, prognozę godzinową i prognozę na 5 najbliższych dni.
 
-## Available Scripts
+🔗 Demo aplikacji dostępne pod adresem:
+[https://PiotrKochanka.github.io/weather-app/](https://PiotrKochanka.github.io/weather-app/)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+### 💻 Technologie
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* **React** (z TypeScriptem)
+* **TypeScript**
+* **CSS Modules** (do stylowania)
+* **OpenWeatherMap API** (do pobierania danych pogodowych)
+* **Font Awesome** (ikony)
+* **Git**
+* **GitHub Pages** (do hostowania)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+### ✅ Funkcje
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+* **Wyszukiwanie miast:** Łatwe wyszukiwanie pogody dla dowolnego miasta na świecie.
+* **Aktualne detale pogodowe:** Wyświetlanie bieżącej temperatury, odczuwalnej temperatury, ciśnienia, wilgotności, prędkości wiatru i opisu pogody.
+* **Prognoza godzinowa:** Szczegółowa prognoza pogody na najbliższe godziny.
+* **Prognoza na 5 dni:** Prognoza długoterminowa na 5 dni, z podziałem na interwały czasowe.
+* **Dynamiczne odświeżanie:** Dane pogodowe odświeżają się bez przeładowania całej strony.
+* **Responsywny design:** Aplikacja działa prawidłowo na różnych urządzeniach (komputery, tablety, smartfony).
 
-### `npm run build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 🚀 Jak uruchomić lokalnie
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+1.  **Sklonuj repozytorium:**
+    ```bash
+    git clone [https://github.com/PiotrKochanka/weather-app.git](https://github.com/PiotrKochanka/weather-app.git)
+    ```
+2.  **Przejdź do folderu projektu:**
+    ```bash
+    cd weather-app
+    ```
+3.  **Zainstaluj zależności:**
+    ```bash
+    npm install
+    # lub
+    yarn install
+    ```
+4.  **Uruchom aplikację:**
+    ```bash
+    npm start
+    # lub
+    yarn start
+    ```
+    Aplikacja zostanie uruchomiona w trybie deweloperskim pod adresem [http://localhost:3000](http://localhost:3000) (lub innym dostępnym porcie).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+---
 
-### `npm run eject`
+### 📁 Struktura plików
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+pgs-cli kopiuj Edytuj
+weather-app/
+├── public/                 // Pliki publiczne (np. index.html)
+├── src/
+│   ├── assets/             // Statyczne zasoby, np. niestandardowe ikony
+│   ├── components/         // Komponenty React (np. Searchbar, WeatherDisplay)
+│   │   ├── Searchbar/
+│   │   ├── WeatherDetails/
+│   │   ├── WeatherHours/
+│   │   └── WeatherDays/
+│   ├── context/            // Konteksty React (np. CityContext)
+│   │   └── CityContext.tsx
+│   ├── hooks/              // Własne hooki React (np. useFetchWeatherForecast)
+│   │   └── useFetchWeatherForecast.tsx
+│   ├── App.css
+│   ├── App.tsx
+│   ├── index.css
+│   ├── index.tsx
+│   └── react-app-env.d.ts
+├── .gitignore
+├── package.json
+├── README.md
+├── tsconfig.json           // Konfiguracja TypeScript
+└── yarn.lock               // (lub package-lock.json)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🌐 Hosting na GitHub Pages
 
-## Learn More
+Aplikacja jest hostowana dzięki funkcji GitHub Pages z gałęzi `gh-pages`.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Link do wersji online:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+🔗 [https://PiotrKochanka.github.io/weather-app/](https://PiotrKochanka.github.io/weather-app/)
+
+---
+
+### ✍️ Autor
+
+Projekt stworzony przez Piotr Kochanka.
