@@ -5,12 +5,13 @@ import { faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 import { CityContext } from '../../CityContext';
 
 interface SearchbarProps{
-    // onSearch: (query: string) => void;
+    onSearch: (query: string) => void;
     placeholder?: string;
 }
 
-const Searchbar: React.FC<SearchbarProps> = ({ placeholder = 'Wpisz miasto...' }) => {
+const Searchbar: React.FC<SearchbarProps> = ({ onSearch, placeholder }: SearchbarProps) => {
     const [searchTerm, setSearchTerm] = useState<string>('');
+    const [error, setError] = useState<string | null>(null);
     const cityContext = useContext(CityContext);
 
     if(!cityContext){
@@ -24,9 +25,27 @@ const Searchbar: React.FC<SearchbarProps> = ({ placeholder = 'Wpisz miasto...' }
     };
 
     const handleSearch = () => {
-        if (searchTerm.trim() !== '') { 
-            setCity(searchTerm.trim()); 
-            setSearchTerm(''); 
+        if (searchTerm.trim() !== '') {
+        // Tutaj będziesz musiał zaimplementować logikę walidacji miasta
+        // Na przykład, możesz wywołać funkcję, która sprawdza, czy miasto istnieje
+        // Jeśli miasto jest nieprawidłowe, ustaw błąd: setError("Nieprawidłowe miasto.");
+        // Jeśli miasto jest prawidłowe, wyczyść błąd i ustaw miasto: setError(null); setCity(searchTerm.trim());
+
+        // Poniżej przykład prostej walidacji (do zastąpienia rzeczywistą logiką):
+        if (searchTerm.toLowerCase() === 'nieistniejące miasto') { // Przykładowa nieprawidłowa nazwa
+            setError("Wpisano nieprawidłowe miasto.");
+        } else {
+            setError(null); // Wyczyść błąd, jeśli poprzednio był
+            setCity(searchTerm.trim());
+            setSearchTerm(''); // Wyczyść pole wyszukiwania po udanym wyszukiwaniu
+        }
+
+        // Ważne: Jeśli `onSearch` wywołuje funkcję pobierającą dane pogodowe,
+        // to tam powinieneś przechwytywać błędy z API (np. 404 Not Found)
+        // i przekazywać je z powrotem do SearchBar lub zarządzać nimi centralnie.
+        onSearch(searchTerm.trim());
+        } else {
+        setError("Wpisz nazwę miasta."); // Błąd, jeśli pole jest puste
         }
     };
 

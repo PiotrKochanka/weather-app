@@ -45,13 +45,13 @@ export interface ForecastData {
 interface UseWeatherForecastResult {
   forecast: ForecastData | null;
   loading: boolean;
-  error: Error | null;
+  error: string | null;
 }
 
 const useFetchWeatherForecast = (city: string): UseWeatherForecastResult => {
   const [forecast, setForecast] = useState<ForecastData | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<string | null>(null);
   const API_KEY = "cf2e206c699833f5d7a554c3c2cfd1f6";
 
   useEffect(() => {
@@ -68,7 +68,7 @@ const useFetchWeatherForecast = (city: string): UseWeatherForecastResult => {
         const data = await res.json();
         setForecast(data);
       } catch (err: any) {
-        setError(err);
+        setError(err.message || "Wystąpił nieznany błąd podczas pobierania pogody.");
       } finally {
         setLoading(false);
       }

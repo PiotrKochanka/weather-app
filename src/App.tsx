@@ -31,19 +31,9 @@ function App() {
 
   let currentVideoSource = defaultVideo;
     if (forecast && forecast.list && forecast.list.length > 0 && forecast.list[0].weather.length > 0) {
-        const weatherMain = forecast.list[0].weather[0].main; // <-- To teraz działa!
-        // ... reszta logiki mapowania wideo
+        const weatherMain = forecast.list[0].weather[0].main;
         currentVideoSource = weatherVideoMap[weatherMain] || defaultVideo;
     }
-
-  if (loading) {
-    return <p>Ładowanie prognozy pogody...</p>;
-  }
-
-  if (error) {
-    return <p>Błąd podczas pobierania danych prognozy: {error.message}</p>;
-  }
-
 
   return (
     <div className="container">
@@ -51,7 +41,11 @@ function App() {
         <source src={currentVideoSource} type="video/mp4" />
       </video>
       <header>
-        <Searchbar />
+        <>
+          <Searchbar onSearch={() => {}} placeholder="Wpisz miasto..." />
+          {loading && <p className="status-message">Ładowanie prognozy pogody...</p>}
+          {error && <p className="status-message error-message">Błąd: {error}</p>}
+        </>
       </header>
       <div className="container_weather_all">
         <div className="container_left">

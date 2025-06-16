@@ -7,14 +7,6 @@ const WeatherDetails: React.FC = () => {
     const { city } = useContext(CityContext)!;
     const { forecast, loading, error } = useFetchWeatherForecast(city);
 
-    if (loading) {
-        return <p>Ładowanie prognozy pogody...</p>;
-    }
-
-    if (error) {
-        return <p>Błąd podczas pobierania danych prognozy: {error.message}</p>;
-    }
-
     return(
         <div>
         {forecast && (
@@ -44,6 +36,8 @@ const WeatherDetails: React.FC = () => {
                                 <p>Zachmurzenie: {item.clouds.all}%</p>
                                 <p>Prędkość wiatru: {item.wind.speed}km/h</p> 
                             </div>
+                        {loading && <p className="status-message">Ładowanie prognozy pogody...</p>}
+                        {error && <p className="status-message error-message">Błąd: {error}</p>}
                         </div>
                     </>
                 ))}

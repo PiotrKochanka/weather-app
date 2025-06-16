@@ -20,14 +20,6 @@ const WeatherDays: React.FC = () => {
     return Object.values(dailyForecast);
   };
 
-  if (loading) {
-    return <p>Ładowanie prognozy pogody...</p>;
-  }
-
-  if (error) {
-    return <p>Błąd podczas pobierania danych prognozy: {error.message}</p>;
-  }
-
   if (forecast) {
     console.log('Forecast data:', forecast);
     const dailyData = getDailyForecast(forecast.list);
@@ -54,6 +46,8 @@ const WeatherDays: React.FC = () => {
               </div>
             ))}
           </div>
+          {loading && <p className="status-message">Ładowanie prognozy pogody...</p>}
+          {error && <p className="status-message error-message">Błąd: {error}</p>}
         </div>
       </div>
     );
