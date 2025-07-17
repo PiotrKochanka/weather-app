@@ -60,3 +60,31 @@ header{
     padding: 12px 24px;
     border-radius: 1rem;
 }
+
+@media all and (min-width: 0px) and (max-width: 639px) {
+    .container_weather_all{
+        padding: 32px 0px;
+        display: flex;
+        gap: 24px;
+    }
+    .weather-container{
+        border-radius: 0;
+        padding: 24px 16px;
+    }
+}
+
+@media all and (min-width: 320px) and (max-width: 1023px) {
+    .container_weather_all{
+        flex-direction: column;
+    }
+    .container_left, .container_right{
+        width: 100%!important;
+    }
+    .container{
+        overflow: hidden;
+    }
+}
+
+@media all and (min-width: 1024px) and (max-width: 1279px) {
+  
+}

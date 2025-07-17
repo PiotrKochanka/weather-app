@@ -10,6 +10,7 @@
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
+    box-sizing: border-box;
 }
 .details_all img{
     /* width: 60px; */
@@ -32,4 +33,28 @@
     align-items: center;
     gap: 64px;
     width: 50%;
+}
+@media all and (min-width: 0px) and (max-width: 639px) {
+    .details_all{
+        flex-direction: column;
+    }
+    .details_all img{
+        width: 140px;
+    }
+    .details_all_temp{
+        width: 100%!important;
+    }
+    .details_main{
+        width:100%;
+        gap: 16px;
+        margin-bottom: 32px;
+    }
+    .details_main > div{
+        min-width: 50%;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 1023px) {
+    .details_all_temp{
+        width: 42%;
+    }
 }

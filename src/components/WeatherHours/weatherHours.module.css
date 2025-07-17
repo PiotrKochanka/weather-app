@@ -34,3 +34,35 @@
 .forecast_description > img{
     width: 124px;
 }
+@media all and (min-width: 0px) and (max-width: 639px) {
+    .weather_hours > div > h2{
+        margin-bottom: 0px;
+    }
+    .forecast_description > img{
+        width: 56px;
+    }
+    .forecast_item > p{
+        width: 50%;
+    }
+}
+@media all and (min-width: 320px) and (max-width: 1023px) {
+    .forecast_list{
+        flex-direction: column;
+    }
+    .forecast_item{
+        border-right: none!important;
+        border-bottom: 1px solid rgb(124, 124, 124);
+        padding: 24px 0px!important;
+    }
+    .forecast_item:last-child{
+        border-bottom: 0px none transparent;
+    }
+    .forecast_item{
+        flex-direction: row!important;
+        justify-content: space-between!important;
+    }
+    .forecast_description{
+        flex-direction: row!important;
+        width: 50%!important;
+    }
+}
